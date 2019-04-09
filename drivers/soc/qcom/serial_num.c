@@ -12,7 +12,7 @@
 
 #define SERIAL_NUM		(0x000)
 
-static uint32_t sn;
+static uint32_t sn= 0;
 
 struct sn_drvdata {
 	void __iomem		*base;
@@ -119,4 +119,3 @@ module_exit(sn_fuse_exit);
 
 MODULE_LICENSE("GPL v2");
 MODULE_DESCRIPTION("JTag Fuse driver");
-

@@ -548,53 +548,53 @@ static long tas2557_file_unlocked_ioctl(struct file *file, unsigned int cmd, uns
 
 	mutex_lock(&pTAS2557->file_lock);
 
-	switch (cmd) {
-	case SMARTPA_SPK_DAC_VOLUME:
-	{
-	}
-	break;
+	switch ((unsigned long)cmd) {
+		case SMARTPA_SPK_DAC_VOLUME:
+		{
+		}
+		break;
 
-	case SMARTPA_SPK_POWER_ON:
-	{
-		tas2557_enable(pTAS2557, true);
-	}
-	break;
+		case SMARTPA_SPK_POWER_ON:
+		{
+			tas2557_enable(pTAS2557, true);
+		}
+		break;
 
-	case SMARTPA_SPK_POWER_OFF:
-	{
-		tas2557_enable(pTAS2557, false);
-	}
-	break;
+		case SMARTPA_SPK_POWER_OFF:
+		{
+			tas2557_enable(pTAS2557, false);
+		}
+		break;
 
-	case SMARTPA_SPK_SWITCH_PROGRAM:
-	{
-		if ((pTAS2557->mpFirmware->mnConfigurations > 0)
-			&& (pTAS2557->mpFirmware->mnPrograms > 0))
-			tas2557_set_program(pTAS2557, arg, -1);
-	}
-	break;
+		case SMARTPA_SPK_SWITCH_PROGRAM:
+		{
+			if ((pTAS2557->mpFirmware->mnConfigurations > 0)
+				&& (pTAS2557->mpFirmware->mnPrograms > 0))
+				tas2557_set_program(pTAS2557, arg, -1);
+		}
+		break;
 
-	case SMARTPA_SPK_SWITCH_CONFIGURATION:
-	{
-		if ((pTAS2557->mpFirmware->mnConfigurations > 0)
-			&& (pTAS2557->mpFirmware->mnPrograms > 0))
-			tas2557_set_config(pTAS2557, arg);
-	}
-	break;
+		case SMARTPA_SPK_SWITCH_CONFIGURATION:
+		{
+			if ((pTAS2557->mpFirmware->mnConfigurations > 0)
+				&& (pTAS2557->mpFirmware->mnPrograms > 0))
+				tas2557_set_config(pTAS2557, arg);
+		}
+		break;
 
-	case SMARTPA_SPK_SWITCH_CALIBRATION:
-	{
-		if ((pTAS2557->mpFirmware->mnConfigurations > 0)
-			&& (pTAS2557->mpFirmware->mnPrograms > 0))
-			tas2557_set_calibration(pTAS2557, arg);
-	}
-	break;
+		case SMARTPA_SPK_SWITCH_CALIBRATION:
+		{
+			if ((pTAS2557->mpFirmware->mnConfigurations > 0)
+				&& (pTAS2557->mpFirmware->mnPrograms > 0))
+				tas2557_set_calibration(pTAS2557, arg);
+		}
+		break;
 
-	case SMARTPA_SPK_SET_SAMPLERATE:
-	{
-		tas2557_set_sampling_rate(pTAS2557, arg);
-	}
-	break;
+		case SMARTPA_SPK_SET_SAMPLERATE:
+		{
+			tas2557_set_sampling_rate(pTAS2557, arg);
+		}
+		break;
 
 	case SMARTPA_SPK_SET_BITRATE:
 	{

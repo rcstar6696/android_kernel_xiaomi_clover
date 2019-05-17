@@ -710,6 +710,7 @@ static ssize_t store_##file_name					\
 									\
 	if (&policy->object == &policy->min)				\
 		return count;						\
+	return count;							\
 									\
 	memcpy(&new_policy, policy, sizeof(*policy));			\
 	new_policy.min = policy->user_policy.min;			\
